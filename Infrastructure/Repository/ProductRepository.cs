@@ -6,24 +6,24 @@ using OrderManagement.Domain.Repository;
 
 namespace OrderManagement.Infrastructure.Repository
 {
-    public class ProductRepository(AppDbContext context) : IBaseRepository<Product>
+    public class ProductRepository(AppDbContext context) : IBaseRepository<ProductEntity>
     {
         private readonly AppDbContext _context = context;
 
-        public async Task<Product> Create(Product entity)
+        public async Task<ProductEntity> Create(ProductEntity entity)
         {
             await _context.Products.AddAsync(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
 
-        public async void Delete(Product entity)
+        public async void Delete(ProductEntity entity)
         {
             await _context.Products.Where(x => x.Id == entity.Id).ExecuteDeleteAsync();
 
         }
 
-        public async Task<(IEnumerable<Product> Items, int Total)> GetAll(int pageNumber, int pageSize)
+        public async Task<(IEnumerable<ProductEntity> Items, int Total)> GetAll(int pageNumber, int pageSize)
         {
             var query = _context.Products.AsNoTracking();
             var total = await _context.Products.CountAsync();
@@ -35,14 +35,14 @@ namespace OrderManagement.Infrastructure.Repository
             return (items, total);
         }
 
-        public async Task<Product?> GetById(Guid id)
+        public async Task<ProductEntity?> GetById(Guid id)
         {
             var product = await _context.Products.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
 
             return product;
         }
 
-        public void Update(Product entity)
+        public void Update(ProductEntity entity)
         {
             _context.Products.Update(entity);
         }
