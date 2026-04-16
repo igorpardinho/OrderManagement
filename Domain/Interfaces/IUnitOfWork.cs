@@ -5,7 +5,7 @@ namespace OrderManagement.Domain.Interfaces
 {
     public interface IUnitOfWork : IDisposable
     {
-        IBaseRepository<Product> Products { get; }
+        IBaseRepository<ProductEntity> Products { get; }
         Task<bool> CommitAsync();
 
 

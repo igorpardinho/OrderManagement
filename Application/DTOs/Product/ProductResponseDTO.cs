@@ -1,6 +1,6 @@
 ﻿namespace OrderManagement.Application.DTOs.Product
 {
-    public class ProductDTO
+    public class ProductResponseDTO
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;

@@ -1,7 +1,7 @@
 using Mapster;
 using OrderManagement.Data;
 using OrderManagement.Domain.Interfaces;
-using OrderManagement.Infrastructure;
+using OrderManagement.Infrastructure.Repository;
 
 
 var builder = WebApplication.CreateBuilder(args);
