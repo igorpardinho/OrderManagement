@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OrderManagement.Entities;
-using System.Security.Cryptography.X509Certificates;
+using OrderManagement.Domain.Entities;
 
 namespace OrderManagement.Data
 {
